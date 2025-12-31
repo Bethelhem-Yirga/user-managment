@@ -1,4 +1,4 @@
-package main
+package config
 
 import (
 	"fmt"
@@ -14,6 +14,8 @@ type Config struct {
 	DBUser      string
 	DBPassword  string
 	DBName      string
+	FrontendURL string 
+
 }
 
 // LoadConfig reads environment variables
@@ -26,6 +28,7 @@ func LoadConfig() (*Config, error) {
 		DBUser:      getEnv("DB_USER", "user_service"),
 		DBPassword:  getEnv("DB_PASSWORD", "password"),
 		DBName:      getEnv("DB_NAME", "userdb"),
+		FrontendURL: getEnv("FRONTEND_URL", "http://localhost:5173"),
 	}
 
 	return cfg, nil

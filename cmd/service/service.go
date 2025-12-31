@@ -8,6 +8,7 @@ import (
 
     _ "github.com/jackc/pgx/v5/stdlib"
     "go-micro.dev/v5"
+    "user-crud/internal/config"
 )
 
 // -------- Models ---------
@@ -99,7 +100,7 @@ func (s *UserService) DeleteUser(ctx context.Context, req *DeleteUserRequest, rs
 // -------- Main ---------
 func main() {
 	// Load configuration
-	cfg, err := LoadConfig()
+	cfg, err := config.LoadConfig()
 	if err != nil {
 		panic(err)
 	}
